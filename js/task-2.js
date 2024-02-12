@@ -25,31 +25,47 @@ const images = [
   },
 ];
 
+let numArr = [];
+function threeDifferentNum() {
+  while (numArr.length < 3) {
+    let number = Math.floor(Math.random() * 6);
+    if (!numArr.includes(number)) {
+      numArr.push(number);
+    }
+  }
+}
+threeDifferentNum();
+
 for (let i = 0; i < 3; i++) {
   // Цикл для виведення 3 елементів масиву (Якщо нам не відома довжина масива, але відомий його вімст)
 
-  let number = Math.floor(Math.random() * 6);         // Рандомне число від 0 до 5, яке буде посиланням на індекс об'єкта
+  let number = Math.floor(Math.random() * 6); // Рандомне число від 0 до 5, яке буде посиланням на індекс об'єкта
 
   const gallery = document.querySelector('.gallery'); // Створення змінної з тегу ul для подальшої роботи з нею та додавання в ul елементів
 
   // Властивості
-  gallery.style.display = 'flex';                     // Горизонтальне відображення зображень через displey: flex
-  gallery.style.gap = '46px';                         // Встановлення gap між li
-  gallery.style.listStyleType = 'none';               // Пgибираємо geyrn-точку біля li
-  gallery.style.justifyContent = 'center';            // Flex вирівнювання по центру
+  gallery.style.display = 'flex'; // Горизонтальне відображення зображень через displey: flex
+  gallery.style.gap = '46px'; // Встановлення gap між li
+  gallery.style.listStyleType = 'none'; // Пgибираємо geyrn-точку біля li
+  gallery.style.justifyContent = 'center'; // Flex вирівнювання по центру
 
-  const newListItem = document.createElement('li');   // Створення посилання на обов'язковий елемент li
-  gallery.appendChild(newListItem);                   // Додавання елемента li в ul
-  const imageOne = document.createElement('img');     // Створення посилання на img
-  imageOne.setAttribute('src', images[number].url);   // Додавання атрибуту src з значенням (Доступ до властивості елементу масиву об"єктів через індекс)
-  imageOne.setAttribute('alt', images[number].alt);   // Додавання атрибуту alt з значенням (Доступ до властивості елементу масиву об"єктів через індекс)
-  imageOne.classList.add('image');                    // Додавання img класу image
+  const newListItem = document.createElement('li'); // Створення посилання на обов'язковий елемент li
+  gallery.appendChild(newListItem); // Додавання елемента li в ul
+  const imageOne = document.createElement('img'); // Створення посилання на img
+  imageOne.setAttribute('src', images[numArr[i]].url); // Додавання атрибуту src з значенням (Доступ до властивості елементу масиву об"єктів через індекс)
+  imageOne.setAttribute('alt', images[numArr[i]].alt); // Додавання атрибуту alt з значенням (Доступ до властивості елементу масиву об"єктів через індекс)
+  imageOne.classList.add('image'); // Додавання img класу image
 
   // Властивості
-  imageOne.style.width = '360px';                     // Додавання інлайн властивості width
-  imageOne.style.height = '300px';                    // Додавання інлайн властивості height
+  imageOne.style.width = '360px'; // Додавання інлайн властивості width
+  imageOne.style.height = '300px'; // Додавання інлайн властивості height
 
-  newListItem.appendChild(imageOne);                  // Додавання елемента img в li
+  newListItem.appendChild(imageOne); // Додавання елемента img в li
 
-  console.log(imageOne);                              // Виведення інформації про створені об"єкти в консоль
+  console.log(imageOne); // Виведення інформації про створені об"єкти в консоль
 }
+
+
+
+
+
